@@ -198,7 +198,7 @@ fn consume_char_word_movement(
     };
     if match direction {
         MoveWordDir::Left => match last_char_class {
-            WordCharClass::Blank => false,
+            WordCharClass::Blank | WordCharClass::Punctuation => false,
             WordCharClass::Newline => matches!(transition, T::Newline),
             _ => matches!(transition, T::Blank | T::Newline | T::DifferentClass),
         },
